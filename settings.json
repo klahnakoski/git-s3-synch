@@ -1,0 +1,26 @@
+{
+	"repos":[
+		{
+			"source": {
+				"url": "https://github.com/klahnakoski/NeglectedOranges.git",
+				"branch": "master",
+				"directory": "/"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/NeglectedOranges",
+				"public": true,
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		}
+
+
+	],
+	"local_cache": "temp",
+
+	"debug":{
+
+
+
+	}
+}
