@@ -94,13 +94,13 @@ def _synch(settings):
         for n in net_new:
             bucket_file = join_path(repo.destination.directory, n.abspath[len(local_dir.abspath):])
             try:
-                Log.note("upload {{file}}", file=bucket_file)
+                Log.note("upload {{file}} ({{type}})", file=bucket_file, type=n.mime_type)
                 storage = bucket.new_key(bucket_file)
                 storage.content_type = n.mime_type
                 storage.set_contents_from_string(n.read_bytes())
                 storage.set_acl('public-read')
             except Exception as e:
-                Log.warning("can not upload {{file}}", file=bucket_file, cause=e)
+                Log.warning("can not upload {{file}} ({{type}})", file=bucket_file, type=n.mime_type, cause=e)
 
 def progress(num, total):
     Log.note("Upload {{num}} of {{total}}", num=num, total=total)
