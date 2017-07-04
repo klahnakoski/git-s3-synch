@@ -1,6 +1,7 @@
 {
 	"repos":[
 		{
+			"force": true,
 			"source": {
 				"url": "https://github.com/klahnakoski/NeglectedOranges.git",
 				"branch": "master",

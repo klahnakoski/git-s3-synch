@@ -9,16 +9,17 @@
 #
 import base64
 import io
-import os
+import re
 import shutil
 from datetime import datetime
-
-import re
+from mimetypes import MimeTypes
 from tempfile import mkdtemp
 
+import os
 from mo_dots import get_module, coalesce
 from mo_logs import Log, Except
 
+mime = MimeTypes()
 
 class File(object):
     """
@@ -31,10 +32,11 @@ class File(object):
         else:
             return object.__new__(cls)
 
-    def __init__(self, filename, buffering=2 ** 14, suffix=None):
+    def __init__(self, filename, buffering=2 ** 14, suffix=None, mime_type=None):
         """
         YOU MAY SET filename TO {"path":p, "key":k} FOR CRYPTO FILES
         """
+        self._mime_type = mime_type
         if filename == None:
             Log.error(u"File must be given a filename")
         elif isinstance(filename, File):
@@ -120,6 +122,12 @@ class File(object):
             return parts[0]
         else:
             return b".".join(parts[0:-1])
+
+    @property
+    def mime_type(self):
+        if not self._mime_type:
+            self._mime_type, _ = mime.guess_type(self.abspath)
+        return self._mime_type
 
     def find(self, pattern):
         """

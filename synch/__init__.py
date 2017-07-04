@@ -12,6 +12,7 @@ from __future__ import division
 from __future__ import unicode_literals
 
 import hashlib
+from mimetypes import MimeTypes
 
 from boto.s3 import connect_to_region
 from mo_dots import coalesce, listwrap, unwrap, Data
@@ -77,12 +78,13 @@ def _synch(settings):
         listing = bucket.list(prefix=remote_prefix)
         metas = {m.key[len(remote_prefix):]: Data(key=m.key, etag=m.etag) for m in listing}
         net_new = []
+
         for local_file in local_dir.leaves:
             local_rel_file = local_file.abspath[len(local_dir.abspath):].lstrip(b'/')
             if "/." in local_rel_file or local_rel_file.startswith("."):
                 continue
             remote_file = metas.get(local_rel_file)
-            if remote_file:
+            if not repo.force and remote_file:
                 if remote_file.etag != md5(local_file):
                     net_new.append(local_file)
             else:
@@ -91,10 +93,17 @@ def _synch(settings):
         # SEND DIFFERENCES
         for n in net_new:
             bucket_file = join_path(repo.destination.directory, n.abspath[len(local_dir.abspath):])
-            Log.note("upload {{file}}", file=bucket_file)
-            storage = bucket.new_key(bucket_file)
-            storage.set_contents_from_file(file(n.abspath))
-            storage.set_acl('public-read')
+            try:
+                Log.note("upload {{file}}", file=bucket_file)
+                storage = bucket.new_key(bucket_file)
+                storage.content_type = n.mime_type
+                storage.set_contents_from_string(n.read_bytes())
+                storage.set_acl('public-read')
+            except Exception as e:
+                Log.warning("can not upload {{file}}", file=bucket_file, cause=e)
+
+def progress(num, total):
+    Log.note("Upload {{num}} of {{total}}", num=num, total=total)
 
 
 def main():
