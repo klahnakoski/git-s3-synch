@@ -78,7 +78,7 @@ def _synch(settings):
         listing = bucket.list(prefix=remote_prefix)
         metas = {m.key[len(remote_prefix):]: Data(key=m.key, etag=m.etag) for m in listing}
         net_new = []
-
+        Log.note("Look for differences")
         for local_file in local_dir.leaves:
             local_rel_file = local_file.abspath[len(local_dir.abspath):].lstrip(b'/')
             if "/." in local_rel_file or local_rel_file.startswith("."):
@@ -101,6 +101,7 @@ def _synch(settings):
                 storage.set_acl('public-read')
             except Exception as e:
                 Log.warning("can not upload {{file}} ({{type}})", file=bucket_file, type=n.mime_type, cause=e)
+
 
 def progress(num, total):
     Log.note("Upload {{num}} of {{total}}", num=num, total=total)

@@ -126,9 +126,12 @@ class File(object):
     @property
     def mime_type(self):
         if not self._mime_type:
-            self._mime_type, _ = mime.guess_type(self.abspath)
-            if not self._mime_type:
-                self._mime_type = "application/binary"
+            if self.abspath.endswith(".json"):
+                self._mime_type = "application/json"
+            else:
+                self._mime_type, _ = mime.guess_type(self.abspath)
+                if not self._mime_type:
+                    self._mime_type = "application/binary"
         return self._mime_type
 
     def find(self, pattern):

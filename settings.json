@@ -1,7 +1,7 @@
 {
 	"repos":[
 		{
-			"force": true,
+			"force": false,
 			"source": {
 				"url": "https://github.com/klahnakoski/NeglectedOranges.git",
 				"branch": "master",
@@ -13,7 +13,46 @@
 				"public": true,
 				"$ref": "file://~/private.json#aws_credentials"
 			}
-		}
+		},
+		{
+			"source": {
+				"url": "https://github.com/mozilla/charts.git",
+				"branch": "quantum",
+				"directory": "quantum"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/quantum",
+				"public": true,
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		},
+		{
+			"source": {
+				"url": "https://github.com/mozilla/charts.git",
+				"branch": "platform",
+				"directory": "platform"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/platform",
+				"public": true,
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		},
+		{
+			"source": {
+				"url": "https://github.com/klahnakoski/MoDevMetrics.git",
+				"branch": "master",
+				"directory": "html"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/metrics",
+				"public": true,
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		},
 
 
 	],
