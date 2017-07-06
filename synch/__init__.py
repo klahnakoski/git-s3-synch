@@ -32,7 +32,9 @@ def md5(source, chunk_size=CHUNK_SIZE):
     for g, data in jx.groupby(source.read_bytes(), size=chunk_size):
         md5s.append(hashlib.md5(data).digest())
 
-    if len(md5s) == 1:
+    if len(md5s) == 0:
+        return '"d41d8cd98f00b204e9800998ecf8427e"'
+    elif len(md5s) == 1:
         return quote(md5s[0].encode("hex"))
     else:
         Log.warning("not known to work")
@@ -47,6 +49,7 @@ def _synch(settings):
     settings.destination.directory = settings.destination.directory.trim("/")
 
     for repo in listwrap(coalesce(settings.repo, settings.repos)):
+        Log.alert("Synch {{repo}}", repo=repo.description)
         name = coalesce(repo.source.name, strings.between(repo.source.url, "/", ".git"))
 
         if not repo.source.branch:
@@ -83,6 +86,7 @@ def _synch(settings):
             local_rel_file = local_file.abspath[len(local_dir.abspath):].lstrip(b'/')
             if "/." in local_rel_file or local_rel_file.startswith("."):
                 continue
+            local_rel_file = local_rel_file.replace("qb/Qb", "qb/qb")
             remote_file = metas.get(local_rel_file)
             if not repo.force and remote_file:
                 if remote_file.etag != md5(local_file):
@@ -92,15 +96,16 @@ def _synch(settings):
 
         # SEND DIFFERENCES
         for n in net_new:
-            bucket_file = join_path(repo.destination.directory, n.abspath[len(local_dir.abspath):])
+            remote_file = join_path(repo.destination.directory, n.abspath[len(local_dir.abspath):])
+            remote_file = remote_file.replace("qb/Qb", "qb/qb")
             try:
-                Log.note("upload {{file}} ({{type}})", file=bucket_file, type=n.mime_type)
-                storage = bucket.new_key(bucket_file)
+                Log.note("upload {{file}} ({{type}})", file=remote_file, type=n.mime_type)
+                storage = bucket.new_key(remote_file)
                 storage.content_type = n.mime_type
                 storage.set_contents_from_string(n.read_bytes())
                 storage.set_acl('public-read')
             except Exception as e:
-                Log.warning("can not upload {{file}} ({{type}})", file=bucket_file, type=n.mime_type, cause=e)
+                Log.warning("can not upload {{file}} ({{type}})", file=remote_file, type=n.mime_type, cause=e)
 
 
 def progress(num, total):

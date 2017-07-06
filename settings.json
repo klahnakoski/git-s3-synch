@@ -1,6 +1,7 @@
 {
 	"repos":[
 		{
+			"description": "NEGLECTED ORANGES",
 			"force": false,
 			"source": {
 				"url": "https://github.com/klahnakoski/NeglectedOranges.git",
@@ -10,11 +11,11 @@
 			"destination": {
 				"bucket": "charts.mozilla.org",
 				"directory": "/NeglectedOranges",
-				"public": true,
 				"$ref": "file://~/private.json#aws_credentials"
 			}
 		},
 		{
+			"description": "QUANTUM DASHBOARDS",
 			"source": {
 				"url": "https://github.com/mozilla/charts.git",
 				"branch": "quantum",
@@ -23,11 +24,11 @@
 			"destination": {
 				"bucket": "charts.mozilla.org",
 				"directory": "/quantum",
-				"public": true,
 				"$ref": "file://~/private.json#aws_credentials"
 			}
 		},
 		{
+			"description": "PLATFORM",
 			"source": {
 				"url": "https://github.com/mozilla/charts.git",
 				"branch": "platform",
@@ -36,11 +37,24 @@
 			"destination": {
 				"bucket": "charts.mozilla.org",
 				"directory": "/platform",
-				"public": true,
 				"$ref": "file://~/private.json#aws_credentials"
 			}
 		},
 		{
+			"description": "PLATFORM HISTORY",
+			"source": {
+				"url": "https://github.com/mozilla/charts.git",
+				"branch": "history",
+				"directory": "platform"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/platform-history",
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		},
+		{
+			"description": "BUG COUNTS",
 			"source": {
 				"url": "https://github.com/klahnakoski/MoDevMetrics.git",
 				"branch": "master",
@@ -49,11 +63,61 @@
 			"destination": {
 				"bucket": "charts.mozilla.org",
 				"directory": "/metrics",
-				"public": true,
 				"$ref": "file://~/private.json#aws_credentials"
 			}
 		},
-
+		{
+			"description": "REVIEW QUEUES",
+			"source": {
+				"url": "https://github.com/klahnakoski/MoDevMetrics.git",
+				"branch": "review",
+				"directory": "html"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/review",
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		},
+		{
+			"description": "MO BUILDBOT TIMINGS",
+			"source": {
+				"url": "https://github.com/mozilla/MoBuildbotTimings.git",
+				"branch": "master",
+				"directory": "/"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/MoBuildbotTimings",
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		},
+		{
+			"description": "TEST FAILURES",
+			"source": {
+				"url": "https://github.com/klahnakoski/TestFailures.git",
+				"branch": "master",
+				"directory": "/"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/testfailures",
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		},
+		{
+			"description": "CONTRIBUTORS",
+			"source": {
+				"url": "https://github.com/klahnakoski/Contributors.git",
+				"branch": "master",
+				"directory": "/"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/contributors",
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		}
 
 	],
 	"local_cache": "temp",
