@@ -12,16 +12,14 @@ from __future__ import division
 from __future__ import unicode_literals
 
 import hashlib
-from mimetypes import MimeTypes
 
 from boto.s3 import connect_to_region
+from jx_python import jx
 from mo_dots import coalesce, listwrap, unwrap, Data
 from mo_files import File, join_path
-from mo_json import bytes2hex
 from mo_logs import startup, constants, Log, strings
 from mo_logs.strings import quote
 from mo_threads import Process
-from pyLibrary.queries import jx
 
 DEBUG = True
 CHUNK_SIZE = 8388608  # BE SURE THIS IS BOTO'S multipart_chunksize https://boto3.readthedocs.io/en/latest/reference/customizations/s3.html#boto3.s3.transfer.TransferConfig

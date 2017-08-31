@@ -97,7 +97,7 @@
 			"source": {
 				"url": "https://github.com/klahnakoski/TestFailures.git",
 				"branch": "master",
-				"directory": "/"
+				"directory": "/public"
 			},
 			"destination": {
 				"bucket": "charts.mozilla.org",
