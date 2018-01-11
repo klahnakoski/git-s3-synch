@@ -1,5 +1,19 @@
 {
-	"repos":[
+	"repos": [
+//		{
+//			"description": "COCO FILE VIEWER",
+//			"force": false,
+//			"source": {
+//				"url": "https://github.com/klahnakoski/firefox-code-coverage-frontend.git",
+//				"branch": "reduce-variables",
+//				"directory": "/build"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/coverage",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
 		{
 			"description": "NEGLECTED ORANGES",
 			"force": false,
@@ -67,6 +81,33 @@
 			}
 		},
 		{
+			"description": "SECURITY STATS",
+			"source": {
+				"url": "https://github.com/klahnakoski/MoDevMetrics.git",
+				"branch": "security",
+				"directory": "html"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/security",
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		},
+		{
+			"description": "BUGZILLA SEARCH",
+			"source": {
+				"url": "https://github.com/klahnakoski/BugzillaSearch.git",
+				"branch": "master",
+				"directory": "/"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/bugzilla",
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		},
+
+		{
 			"description": "REVIEW QUEUES",
 			"source": {
 				"url": "https://github.com/klahnakoski/MoDevMetrics.git",
@@ -117,14 +158,22 @@
 				"directory": "/contributors",
 				"$ref": "file://~/private.json#aws_credentials"
 			}
-		}
-
+		},
+		{
+			"description": "JSON FORMATTER",
+			"source": {
+				"url": "https://github.com/klahnakoski/JSON-Formatter.git",
+				"branch": "master",
+				"directory": "/html/"
+			},
+			"destination": {
+				"bucket": "charts.mozilla.org",
+				"directory": "/JSON-Formatter",
+				"$ref": "file://~/private.json#aws_credentials"
+			}
+		},
 	],
 	"local_cache": "temp",
-
-	"debug":{
-
-
-
+	"debug": {
 	}
 }

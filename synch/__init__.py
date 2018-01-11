@@ -48,6 +48,8 @@ def _synch(settings):
 
     for repo in listwrap(coalesce(settings.repo, settings.repos)):
         Log.alert("Synch {{repo}}", repo=repo.description)
+        if not strings.between(repo.source.url, "/", ".git"):
+            Log.error("This is not a git reference: {{git_url}}", git_url=repo.source.url)
         name = coalesce(repo.source.name, strings.between(repo.source.url, "/", ".git"))
 
         if not repo.source.branch:
