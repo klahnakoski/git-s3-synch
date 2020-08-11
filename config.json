@@ -14,25 +14,25 @@
 //				"$ref": "file://~/private.json#aws_credentials"
 //			}
 //		},
-		{
-			"description": "NEGLECTED ORANGES",
-			"force": false,
-			"source": {
-				"url": "https://github.com/klahnakoski/NeglectedOranges.git",
-				"branch": "master",
-				"directory": "/"
-			},
-			"destination": {
-				"bucket": "charts.mozilla.org",
-				"directory": "/NeglectedOranges",
-				"$ref": "file://~/private.json#aws_credentials"
-			}
-		},
+//		{
+//			"description": "NEGLECTED ORANGES",
+//			"force": false,
+//			"source": {
+//				"url": "https://github.com/klahnakoski/NeglectedOranges.git",
+//				"branch": "master",
+//				"directory": "/"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/NeglectedOranges",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
 		{
 			"description": "QUANTUM DASHBOARDS",
 			"source": {
 				"url": "https://github.com/mozilla/charts.git",
-				"branch": "quantum",
+				"branch": "quantum-investigate",
 				"directory": "quantum"
 			},
 			"destination": {
@@ -41,137 +41,137 @@
 				"$ref": "file://~/private.json#aws_credentials"
 			}
 		},
-		{
-			"description": "PLATFORM",
-			"source": {
-				"url": "https://github.com/mozilla/charts.git",
-				"branch": "platform",
-				"directory": "platform"
-			},
-			"destination": {
-				"bucket": "charts.mozilla.org",
-				"directory": "/platform",
-				"$ref": "file://~/private.json#aws_credentials"
-			}
-		},
-		{
-			"description": "PLATFORM HISTORY",
-			"source": {
-				"url": "https://github.com/mozilla/charts.git",
-				"branch": "history",
-				"directory": "platform"
-			},
-			"destination": {
-				"bucket": "charts.mozilla.org",
-				"directory": "/platform-history",
-				"$ref": "file://~/private.json#aws_credentials"
-			}
-		},
-		{
-			"description": "BUG COUNTS",
-			"source": {
-				"url": "https://github.com/klahnakoski/MoDevMetrics.git",
-				"branch": "master",
-				"directory": "html"
-			},
-			"destination": {
-				"bucket": "charts.mozilla.org",
-				"directory": "/metrics",
-				"$ref": "file://~/private.json#aws_credentials"
-			}
-		},
-		{
-			"description": "SECURITY STATS",
-			"source": {
-				"url": "https://github.com/klahnakoski/MoDevMetrics.git",
-				"branch": "security",
-				"directory": "html"
-			},
-			"destination": {
-				"bucket": "charts.mozilla.org",
-				"directory": "/security",
-				"$ref": "file://~/private.json#aws_credentials"
-			}
-		},
-		{
-			"description": "BUGZILLA SEARCH",
-			"source": {
-				"url": "https://github.com/klahnakoski/BugzillaSearch.git",
-				"branch": "master",
-				"directory": "/"
-			},
-			"destination": {
-				"bucket": "charts.mozilla.org",
-				"directory": "/bugzilla",
-				"$ref": "file://~/private.json#aws_credentials"
-			}
-		},
-
-		{
-			"description": "REVIEW QUEUES",
-			"source": {
-				"url": "https://github.com/klahnakoski/MoDevMetrics.git",
-				"branch": "review",
-				"directory": "html"
-			},
-			"destination": {
-				"bucket": "charts.mozilla.org",
-				"directory": "/review",
-				"$ref": "file://~/private.json#aws_credentials"
-			}
-		},
-		{
-			"description": "MO BUILDBOT TIMINGS",
-			"source": {
-				"url": "https://github.com/mozilla/MoBuildbotTimings.git",
-				"branch": "master",
-				"directory": "/"
-			},
-			"destination": {
-				"bucket": "charts.mozilla.org",
-				"directory": "/MoBuildbotTimings",
-				"$ref": "file://~/private.json#aws_credentials"
-			}
-		},
-		{
-			"description": "TEST FAILURES",
-			"source": {
-				"url": "https://github.com/klahnakoski/TestFailures.git",
-				"branch": "master",
-				"directory": "/public"
-			},
-			"destination": {
-				"bucket": "charts.mozilla.org",
-				"directory": "/testfailures",
-				"$ref": "file://~/private.json#aws_credentials"
-			}
-		},
-		{
-			"description": "CONTRIBUTORS",
-			"source": {
-				"url": "https://github.com/klahnakoski/Contributors.git",
-				"branch": "master",
-				"directory": "/"
-			},
-			"destination": {
-				"bucket": "charts.mozilla.org",
-				"directory": "/contributors",
-				"$ref": "file://~/private.json#aws_credentials"
-			}
-		},
-		{
-			"description": "JSON FORMATTER",
-			"source": {
-				"url": "https://github.com/klahnakoski/JSON-Formatter.git",
-				"branch": "master",
-				"directory": "/html/"
-			},
-			"destination": {
-				"bucket": "charts.mozilla.org",
-				"directory": "/JSON-Formatter",
-				"$ref": "file://~/private.json#aws_credentials"
-			}
-		},
+//		{
+//			"description": "PLATFORM",
+//			"source": {
+//				"url": "https://github.com/mozilla/charts.git",
+//				"branch": "platform",
+//				"directory": "platform"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/platform",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
+//		{
+//			"description": "PLATFORM HISTORY",
+//			"source": {
+//				"url": "https://github.com/mozilla/charts.git",
+//				"branch": "history",
+//				"directory": "platform"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/platform-history",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
+//		{
+//			"description": "BUG COUNTS",
+//			"source": {
+//				"url": "https://github.com/klahnakoski/MoDevMetrics.git",
+//				"branch": "master",
+//				"directory": "html"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/metrics",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
+//		{
+//			"description": "SECURITY STATS",
+//			"source": {
+//				"url": "https://github.com/klahnakoski/MoDevMetrics.git",
+//				"branch": "security",
+//				"directory": "html"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/security",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
+//		{
+//			"description": "BUGZILLA SEARCH",
+//			"source": {
+//				"url": "https://github.com/klahnakoski/BugzillaSearch.git",
+//				"branch": "master",
+//				"directory": "/"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/bugzilla",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
+//
+//		{
+//			"description": "REVIEW QUEUES",
+//			"source": {
+//				"url": "https://github.com/klahnakoski/MoDevMetrics.git",
+//				"branch": "review",
+//				"directory": "html"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/review",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
+//		{
+//			"description": "MO BUILDBOT TIMINGS",
+//			"source": {
+//				"url": "https://github.com/mozilla/MoBuildbotTimings.git",
+//				"branch": "master",
+//				"directory": "/"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/MoBuildbotTimings",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
+//		{
+//			"description": "TEST FAILURES",
+//			"source": {
+//				"url": "https://github.com/klahnakoski/TestFailures.git",
+//				"branch": "master",
+//				"directory": "/public"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/testfailures",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
+//		{
+//			"description": "CONTRIBUTORS",
+//			"source": {
+//				"url": "https://github.com/klahnakoski/Contributors.git",
+//				"branch": "master",
+//				"directory": "/"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/contributors",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
+//		{
+//			"description": "JSON FORMATTER",
+//			"source": {
+//				"url": "https://github.com/klahnakoski/JSON-Formatter.git",
+//				"branch": "master",
+//				"directory": "/html/"
+//			},
+//			"destination": {
+//				"bucket": "charts.mozilla.org",
+//				"directory": "/JSON-Formatter",
+//				"$ref": "file://~/private.json#aws_credentials"
+//			}
+//		},
 	],
 	"local_cache": "temp",
 	"debug": {

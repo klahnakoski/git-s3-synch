@@ -1,2 +1,5 @@
 temp
-/mo_files/*.pyc
+*.pyc
+.idea
+/*.iml
+.svn

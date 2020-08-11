@@ -27,7 +27,7 @@ CHUNK_SIZE = 8388608  # BE SURE THIS IS BOTO'S multipart_chunksize https://boto3
 
 def md5(source, chunk_size=CHUNK_SIZE):
     md5s = []
-    for g, data in jx.groupby(source.read_bytes(), size=chunk_size):
+    for g, data in jx.chunk(source.read_bytes(), size=chunk_size):
         md5s.append(hashlib.md5(data).digest())
 
     if len(md5s) == 0:
